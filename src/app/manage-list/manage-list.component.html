@@ -1,0 +1,32 @@
+<div class="row">
+	<br>
+	<h1>Danh sách quản lý Sản Phẩm</h1>
+	<br>
+	<table class="table">
+		<thead class="thead-dark">
+			<tr>
+				<th scope="col">ID</th>
+				<th scope="col">Name</th>
+				<th scope="col">Price</th>
+				<th scope="col">Desk</th>
+				<th scope="col">Image</th>
+				<th scope="col">Chi tiết</th>
+				<th scope="col">Sửa</th>
+				<th scope="col">Xóa</th>
+			</tr>
+		</thead>
+		<tbody>
+			<tr *ngFor="let product of products">
+				<td scope="row">{{product.id}}</td>
+				<th>{{product.name}}</th>
+				<td>${{product.price}}</td>
+				<td>{{product.description}}</td>
+				<td><img [src]="product.image" width="200px"></td>
+
+				<td><button class="btn btn-secondary" routerLink="/manage/product/{{product.id}}">Detail</button></td>
+				<td><button class="btn btn-secondary" routerLink="/manage/product/edit/{{product.id}}">Edit</button></td>
+				<td><button class="btn btn-secondary"  (click)="removeItem(product.id)">Remove</button></td>
+			</tr>
+		</tbody>
+	</table>
+		</div>
