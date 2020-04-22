@@ -6,9 +6,11 @@ import { ManageListComponent } from "./manage-list/manage-list.component";
 import { ManageAddComponent } from "./manage-add/manage-add.component";
 import { ManageDetailComponent } from "./manage-detail/manage-detail.component";
 import { ManageEditComponent } from "./manage-edit/manage-edit.component";
+import { AboutComponent } from "./about/about.component";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
+  { path: "about", component: AboutComponent },
   {
     path: "manage",
     component: ManageComponent,

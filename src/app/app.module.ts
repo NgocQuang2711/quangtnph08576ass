@@ -12,10 +12,11 @@ import { ManageListComponent } from './manage-list/manage-list.component';
 import { ManageEditComponent } from './manage-edit/manage-edit.component';
 import { ManageDetailComponent } from './manage-detail/manage-detail.component';
 import { ProductService } from './product.service';
+import { AboutComponent } from './about/about.component';
 
 @NgModule({
   imports:      [ BrowserModule, FormsModule, AppRoutingModule, HttpClientModule],
-  declarations: [ AppComponent, HelloComponent, HomeComponent, ManageComponent, ManageAddComponent, ManageListComponent, ManageEditComponent, ManageDetailComponent ],
+  declarations: [ AppComponent, HelloComponent, HomeComponent, ManageComponent, ManageAddComponent, ManageListComponent, ManageEditComponent, ManageDetailComponent, AboutComponent ],
   bootstrap:    [ AppComponent ],
   providers: [ProductService]
 })
