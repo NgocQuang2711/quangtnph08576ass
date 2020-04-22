@@ -7,10 +7,14 @@ import { ManageAddComponent } from "./manage-add/manage-add.component";
 import { ManageDetailComponent } from "./manage-detail/manage-detail.component";
 import { ManageEditComponent } from "./manage-edit/manage-edit.component";
 import { AboutComponent } from "./about/about.component";
+import { ContactComponent } from "./contact/contact.component";
+import { ShopComponent } from "./shop/shop.component";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
   { path: "about", component: AboutComponent },
+  { path: "contact", component: ContactComponent },
+  { path: "shop", component: ShopComponent },
   {
     path: "manage",
     component: ManageComponent,
