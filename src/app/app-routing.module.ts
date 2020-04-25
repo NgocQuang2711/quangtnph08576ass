@@ -9,6 +9,7 @@ import { ManageEditComponent } from "./manage-edit/manage-edit.component";
 import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { ShopComponent } from "./shop/shop.component";
+import { FindNotFoundComponent } from "./find-not-found/find-not-found.component";
 const routes: Routes = [
   { path: "", redirectTo: "home", pathMatch: "full" },
   { path: "home", component: HomeComponent },
@@ -25,7 +26,15 @@ const routes: Routes = [
       { path: 'product/:id', component: ManageDetailComponent},
       { path: 'product/edit/:id', component: ManageEditComponent}
     ]
-  }
+  },
+  {
+    path: '404',
+    component: FindNotFoundComponent
+  },
+  {
+    path: '**',
+    redirectTo: '404'
+  },
 ];
 
 @NgModule({

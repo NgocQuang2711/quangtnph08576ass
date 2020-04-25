@@ -16,6 +16,7 @@ import { AboutComponent } from "./about/about.component";
 import { ContactComponent } from "./contact/contact.component";
 import { ShopComponent } from "./shop/shop.component";
 import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
+import { FindNotFoundComponent } from './find-not-found/find-not-found.component';
 @NgModule({
   imports: [
     BrowserModule,
@@ -35,7 +36,8 @@ import { NgbModule } from "@ng-bootstrap/ng-bootstrap";
     ManageDetailComponent,
     AboutComponent,
     ContactComponent,
-    ShopComponent
+    ShopComponent,
+    FindNotFoundComponent
   ],
   bootstrap: [AppComponent],
   providers: [ProductService]
