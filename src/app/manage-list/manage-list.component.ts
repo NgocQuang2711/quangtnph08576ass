@@ -10,6 +10,8 @@ export class ManageListComponent implements OnInit {
 
   selected: Product;
   products: Product[];
+  page = 1;
+  pageSize = 3;
   constructor(private productService: ProductService) {}
 
   ngOnInit() {

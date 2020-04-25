@@ -16,17 +16,24 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let product of products">
+			<tr *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
 				<td scope="row">{{product.id}}</td>
 				<th>{{product.name}}</th>
 				<td>${{product.price}}</td>
 				<td>{{product.description}}</td>
 				<td><img [src]="product.image" width="200px"></td>
 
-				<td><button class="btn btn-secondary" routerLink="/manage/product/{{product.id}}">Detail</button></td>
-				<td><button class="btn btn-secondary" routerLink="/manage/product/edit/{{product.id}}">Edit</button></td>
+				<td><button class="btn btn-secondary" routerLink="/manage/product/{{product.id}}">Detail</button>
+				</td>
+				<td><button class="btn btn-secondary" routerLink="/manage/product/edit/{{product.id}}">Edit</button>
+				</td>
 				<td><button class="btn btn-secondary"  (click)="removeItem(product.id)">Remove</button></td>
 			</tr>
 		</tbody>
 	</table>
-		</div>
+  <ngb-pagination 
+        [(page)]="page"
+        [pageSize]="pageSize"
+        [collectionSize]="products.length">
+      </ngb-pagination>
+</div>
