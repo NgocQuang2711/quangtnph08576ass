@@ -7,7 +7,6 @@ import {
   FormControl,
   FormBuilder,
   Validators,
-MaxLengthValidator
 } from "@angular/forms";
 @Component({
   selector: "app-manage-add",
@@ -31,6 +30,9 @@ export class ManageAddComponent implements OnInit {
   get productImage(){
     return this.checkInput(this.productForm.controls.image);
   }
+   get productDescription(){
+    return this.checkInput(this.productForm.controls.description);
+  }
 
   checkInput(value) {
     for (let err in value.errors){
@@ -41,25 +43,44 @@ export class ManageAddComponent implements OnInit {
   }
 
   productForm = this.fbuiler.group({
+    id: new FormControl,
     name: [null, [
       Validators.required,
-      Validators.maxLength(maxLength: 30),
-      Validators.minLength(minLength: 1),
+      Validators.maxLength(30),
+      Validators.minLength(1),
     ]],
     price: [null, [
       Validators.required,
-      Validators.maxLength(maxLength: 30),
-      Validators.minLength(minLength: 1),
+      Validators.maxLength(30),
+      Validators.minLength(1),
     ]],
+    description: [null, [
+      Validators.required,
+      // Validators.maxLength(30),
+      // Validators.minLength(1),
+    ]],
+     image: [null, [
+      Validators.required,
+      // Validators.maxLength(30),
+      // Validators.minLength(1),
+    ]]
   });
 
-  getErrorMes(err, value) {
-    let message = {};
-    return message[err];
+getErrorMes(err, value) {
+    let messages = {
+      'required': 'Do not leave this field blank',
+      'maxLength': `Maximum of ${value.requiredLength} characters`,
+      'minlength': `Minimum of ${value.requiredLength} characters`,
+      // 'pattern': 'wrong format',
+    };
+    return messages[err];
   }
+
+
 
   ngOnInit() {}
   addProduct() {
+    this.product = this.productForm.value;
     this.productService
       .addProduct(this.product)
       .subscribe(data => this.router.navigateByUrl("/manager"));
