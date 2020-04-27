@@ -22,7 +22,7 @@ const routes: Routes = [
     children: [
       { path: "", component: ManageListComponent },
       { path: "product-manager", component: ManageListComponent },
-      { path: "addProduct", component: ManageAddComponent },
+      { path: "add", component: ManageAddComponent },
       { path: 'product/:id', component: ManageDetailComponent},
       { path: 'product/edit/:id', component: ManageEditComponent}
     ]
@@ -31,10 +31,10 @@ const routes: Routes = [
     path: '404',
     component: FindNotFoundComponent
   },
-  {
-    path: '**',
-    redirectTo: '404'
-  },
+  // {
+  //   path: '**',
+  //   redirectTo: '404'
+  // },
 ];
 
 @NgModule({
