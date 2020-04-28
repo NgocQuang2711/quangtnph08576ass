@@ -16,15 +16,27 @@ const routes: Routes = [
   { path: "about", component: AboutComponent },
   { path: "contact", component: ContactComponent },
   { path: "shop", component: ShopComponent },
+  // {
+  //   path: "manage",
+  //   component: ManageComponent,
+  //   children: [
+  //     { path: "", component: ManageListComponent },
+  //     { path: "product-manager", component: ManageListComponent },
+  //     { path: "add", component: ManageAddComponent },
+  //     { path: 'product/:id', component: ManageDetailComponent},
+  //     { path: 'product/edit/:id', component: ManageEditComponent}
+  //   ]
+  // },
+
   {
-    path: "manage",
+    path: 'manage',
     component: ManageComponent,
     children: [
-      { path: "", component: ManageListComponent },
-      { path: "product-manager", component: ManageListComponent },
-      { path: "add", component: ManageAddComponent },
-      { path: 'product/:id', component: ManageDetailComponent},
-      { path: 'product/edit/:id', component: ManageEditComponent}
+      {path: '', redirectTo: 'product-manager', pathMatch: 'full'},
+      {path: 'product-manager', component: ManageListComponent},
+      {path: 'add', component: ManageAddComponent},
+      {path: 'product/edit/:id', component: ManageEditComponent},
+      {path: 'product/:id', component: ManageDetailComponent}
     ]
   },
   {

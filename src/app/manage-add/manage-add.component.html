@@ -1,4 +1,5 @@
-<form [formGroup]="productForm" action="" method="POST">
+<div>
+<form [formGroup] = "productForm" action="" method="post">
 	<h3 style="color : gray">Thêm mới Sản Phẩm</h3>
 
 	<div class="form-group row">
@@ -32,5 +33,6 @@
              <label *ngIf="productDescription" class="text-danger"> {{productDescription}}</label>
     </div>
 					</div>
-					<button type="submit" class="btn btn-secondary" (click)="addProduct()" [disabled="!productForm.valid">Thêm sản phẩm</button>
+					<button type="submit" class="btn btn-secondary" (click)="addProduct()" [disabled]="!productForm.valid">Thêm sản phẩm</button>
 </form>
+</div>

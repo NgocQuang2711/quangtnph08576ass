@@ -2,12 +2,7 @@ import { Component, OnInit } from "@angular/core";
 import { Product } from "../Product";
 import { ProductService } from "../product.service";
 import { Router } from "@angular/router";
-import {
-  FormGroup,
-  FormControl,
-  FormBuilder,
-  Validators,
-} from "@angular/forms";
+import {FormGroup,FormControl,FormBuilder,Validators,} from "@angular/forms";
 @Component({
   selector: "app-manage-add",
   templateUrl: "./manage-add.component.html",
@@ -48,6 +43,7 @@ export class ManageAddComponent implements OnInit {
       Validators.required,
       Validators.maxLength(30),
       Validators.minLength(1),
+      Validators.pattern('^[a-zA-Z]+[a-zA-Z ]*')
     ]],
     price: [null, [
       Validators.required,
@@ -71,7 +67,7 @@ getErrorMes(err, value) {
       'required': 'Do not leave this field blank',
       'maxLength': `Maximum of ${value.requiredLength} characters`,
       'minlength': `Minimum of ${value.requiredLength} characters`,
-      // 'pattern': 'wrong format',
+      'pattern': 'wrong format',
     };
     return messages[err];
   }
@@ -81,8 +77,6 @@ getErrorMes(err, value) {
   ngOnInit() {}
   addProduct() {
     this.product = this.productForm.value;
-    this.productService
-      .addProduct(this.product)
-      .subscribe(data => this.router.navigateByUrl("/manager"));
+       this.productService.addProduct(this.product).subscribe(data => this.router.navigateByUrl('/manage'));
   }
 }

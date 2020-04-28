@@ -1,6 +1,6 @@
 import { NgModule } from "@angular/core";
 import { BrowserModule } from "@angular/platform-browser";
-import { FormsModule } from "@angular/forms";
+import { FormsModule,ReactiveFormsModule } from "@angular/forms";
 import { AppRoutingModule } from "./app-routing.module";
 import { HttpClientModule } from "@angular/common/http";
 import { AppComponent } from "./app.component";
@@ -23,7 +23,9 @@ import { FindNotFoundComponent } from './find-not-found/find-not-found.component
     FormsModule,
     AppRoutingModule,
     HttpClientModule,
-    NgbModule
+    NgbModule,
+    ReactiveFormsModule,
+    
   ],
   declarations: [
     AppComponent,
@@ -37,7 +39,8 @@ import { FindNotFoundComponent } from './find-not-found/find-not-found.component
     AboutComponent,
     ContactComponent,
     ShopComponent,
-    FindNotFoundComponent
+    FindNotFoundComponent,
+    
   ],
   bootstrap: [AppComponent],
   providers: [ProductService]
