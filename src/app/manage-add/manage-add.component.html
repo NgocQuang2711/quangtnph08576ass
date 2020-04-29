@@ -28,7 +28,6 @@
 
 		<div class="form-group">
 			<label for="exampleInputPassword1">Image :</label>
-
 			<div class="form-group row">
 				<div class="col-sm-10">
 					<button type="submit" class="btn btn-danger  btn-secondary" (click)="fileInput.click()">Upload Image</button>
@@ -36,10 +35,8 @@
 			</div>
 			<br>
 			<img [src]="url" width="500px" class="rounded mx-auto d-block" alt="Image here">
-			<!-- <img [src]="url" width="300px" alt="Ảnh tại đây"> <br/> -->
 			<input type='file' name="image" #fileInput (change)="onSelectFile($event)" formControlName="image" style="display : none"><br>
 			<label *ngIf="ProductImage" class="text-danger"> {{ProductImage}}</label>
-
 		</div>
 
 		<div class="btn-group" role="group" aria-label="Basic example">
