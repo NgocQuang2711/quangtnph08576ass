@@ -7,7 +7,8 @@ import { ProductService } from "../product.service";
   styleUrls: ['./shop.component.css']
 })
 export class ShopComponent implements OnInit {
-
+  title = 'Angular Search Using ng2-search-filter';
+  searchText;
   selected: Product;
   products: Product[];
   page = 1;

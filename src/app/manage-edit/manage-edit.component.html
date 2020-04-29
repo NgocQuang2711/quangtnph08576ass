@@ -1,18 +1,26 @@
 <h2>Edit Product</h2>
-<form *ngIf="product">
+<form *ngIf="product" [formGroup]="productForm" action="" method="post">
 	<div class="form-group">
 		<label for="name">Name</label>
-		<input type="text" name="name" [(ngModel)]="product.name" class="form-control">
-                    </div>
-		<div class="form-group">
-			<label for="price">Price</label>
-			<input type="text" name="price" [(ngModel)]="product.price" class="form-control">
-                    </div>
-			<div class="form-group">
-				<label for="price">Desc</label>
-				<input type="text" name="description" [(ngModel)]="product.description" class="form-control">
-                    </div>
-				<div class="form-group">
-					<button (click)="edit()" routerLink="/manage" routerLinkActive="active" >Edit</button>
-				</div>
+		<input type="text" name="name" class="form-control" formControlName="name" [(ngModel)]="product.name" >
+		<label *ngIf="productName" class="text-danger"> {{productName}}</label>
+	</div>
+	<div class="form-group">
+		<label for="price">Price</label>
+		<input type="text" name="price" class="form-control" [(ngModel)]="product.price" formControlName="price">
+		<label *ngIf="productPrice" class="text-danger"> {{productPrice}}</label>
+	</div>
+	<div class="form-group">
+		<label for="description">Desc</label>
+		<input type="text" name="description" class="form-control" [(ngModel)]="product.description" formControlName="description">
+		<label *ngIf="productDescription" class="text-danger"> {{productDescription}}</label>
+	</div>
+  	<div class="form-group">
+		<label for="image">image</label>
+		<input type="text" name="description" class="form-control" [(ngModel)]="product.image" formControlName="image">
+    <img [src]="product.image" class="img-thumbnail" alt="">
+	</div>
+	<div class="form-group">
+		<button (click)="edit()" routerLink="/manage/product-manager" routerLinkActive="active" >Edit</button>
+	</div>
 </form>

@@ -1,38 +1,52 @@
 <div>
-<form [formGroup] = "productForm" action="" method="post">
-	<h3 style="color : gray">Thêm mới Sản Phẩm</h3>
+	<form [formGroup]="productForm" action="" method="post">
+		<h3 style="color : gray">Thêm mới Sản Phẩm</h3>
 
-	<div class="form-group row">
-		<label for="1" class="col-sm-2 col-form-label">Name :</label>
-		<div class="col-sm-10">
-			<input type="text" name="name" class="form-control" formControlName="name" placeholder="Product Name"  > 
-      <label *ngIf="productName" class="text-danger"> {{productName}}</label>
-    </div>
+		<div class="form-group row">
+			<label for="1" class="col-sm-2 col-form-label">Name :</label>
+			<div class="col-sm-10">
+				<input type="text" name="name" class="form-control" formControlName="name" placeholder="Product Name"  >
+				<label *ngIf="productName" class="text-danger"> {{productName}}</label>
+			</div>
 		</div>
 
 		<div class="form-group row">
 			<label for="inputPassword" class="col-sm-2 col-form-label">Price :</label>
 			<div class="col-sm-10">
 				<input type="text" name="price" class="form-control"placeholder="Price" formControlName="price">
-         <label *ngIf="productPrice" class="text-danger"> {{productPrice}}</label>
-    </div>
+				<label *ngIf="productPrice" class="text-danger"> {{productPrice}}</label>
 			</div>
+		</div>
+		<div class="form-group row">
+			<label for="inputPassword" class="col-sm-2 col-form-label">Description :</label>
+			<div class="col-sm-10">
+				<input type="text" name="description" class="form-control" placeholder="Mô tả" formControlName="description">
+				<label *ngIf="productDescription" class="text-danger"> {{productDescription}}</label>
+			</div>
+		</div>
+
+
+		<div class="form-group">
+			<label for="exampleInputPassword1">Image :</label>
 
 			<div class="form-group row">
-				<label for="inputPassword" class="col-sm-2 col-form-label">Image :</label>
 				<div class="col-sm-10">
-					<input type="text" name="image" class="form-control" placeholder="Đường dẫn ảnh" formControlName="image">
-          <label *ngIf="productImage" class="text-danger"> {{productImage}}</label>
-    </div>
+					<button type="submit" class="btn btn-danger  btn-secondary" (click)="fileInput.click()">Upload Image</button>
 				</div>
+			</div>
+			<br>
+			<img [src]="url" width="500px" class="rounded mx-auto d-block" alt="Image here">
+			<!-- <img [src]="url" width="300px" alt="Ảnh tại đây"> <br/> -->
+			<input type='file' name="image" #fileInput (change)="onSelectFile($event)" formControlName="image" style="display : none"><br>
+			<label *ngIf="ProductImage" class="text-danger"> {{ProductImage}}</label>
 
-				<div class="form-group row">
-					<label for="inputPassword" class="col-sm-2 col-form-label">Description :</label>
-					<div class="col-sm-10">
-						<input type="text" name="description" class="form-control" placeholder="Mô tả" formControlName="description">
-             <label *ngIf="productDescription" class="text-danger"> {{productDescription}}</label>
-    </div>
-					</div>
-					<button type="submit" class="btn btn-secondary" (click)="addProduct()" [disabled]="!productForm.valid">Thêm sản phẩm</button>
-</form>
+		</div>
+
+		<div class="btn-group" role="group" aria-label="Basic example">
+			<button type="submit" class="btn btn-danger btn-secondary" (click)="addProduct()" [disabled]="!productForm.valid">Add New</button>
+			<button type="reset" class="btn btn-danger btn-secondary" (click)="clear()">Reset</button>
+			<!-- <button type="button" class="btn btn-secondary">Right</button> -->
+		</div>
+
+	</form>
 </div>

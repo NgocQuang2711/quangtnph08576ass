@@ -7,7 +7,7 @@ import { ProductService } from "../product.service";
   styleUrls: ['./manage-list.component.css']
 })
 export class ManageListComponent implements OnInit {
-
+  searchText;
   selected: Product;
   products: Product[];
   page = 1;

@@ -1,5 +1,11 @@
 <div class="row">
 	<br>
+	<div class="header-search">
+		<form action="#">
+			<input class="form-control" type="text" name="search" [(ngModel)]="searchText" autocomplete="off" placeholder="Search product..."/>
+			<button type="submit"><img src="https://imgur.com/oAXpmqH.png" height="40px" width="30px"></button>
+		</form>
+	</div>
 	<h1>Danh sách quản lý Sản Phẩm</h1>
 	<br>
 	<table class="table">
@@ -16,24 +22,22 @@
 			</tr>
 		</thead>
 		<tbody>
-			<tr *ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize">
+			<tr
+				*ngFor="let product of products | slice: (page-1) * pageSize : (page-1) * pageSize + pageSize | filter:searchText">
 				<td scope="row">{{product.id}}</td>
 				<th>{{product.name}}</th>
 				<td>${{product.price}}</td>
 				<td>{{product.description}}</td>
 				<td><img [src]="product.image" width="200px"></td>
 
-				<td><button class="btn btn-secondary" routerLink="/manage/product/{{product.id}}">Detail</button>
+				<td><button class="btn btn-secondary " routerLink="/manage/product/{{product.id}}">Detail</button>
 				</td>
 				<td><button class="btn btn-secondary" routerLink="/manage/product/edit/{{product.id}}">Edit</button>
 				</td>
-				<td><button class="btn btn-secondary"  (click)="removeItem(product.id)">Remove</button></td>
+				<td><button class="btn btn-danger btn-secondary"  (click)="removeItem(product.id)">Remove</button></td>
 			</tr>
 		</tbody>
 	</table>
-  <ngb-pagination 
-        [(page)]="page"
-        [pageSize]="pageSize"
-        [collectionSize]="products.length">
-      </ngb-pagination>
+	<ngb-pagination [(page)]="page" [pageSize]="pageSize" [collectionSize]="products.length">
+	</ngb-pagination>
 </div>
